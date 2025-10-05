@@ -1,0 +1,286 @@
+﻿[assembly: System.Reflection.AssemblyMetadata("RepositoryUrl", "https://github.com/moviecollection/sub-source")]
+[assembly: System.Runtime.Versioning.TargetFramework(".NETCoreApp,Version=v8.0", FrameworkDisplayName=".NET 8.0")]
+namespace MovieCollection.SubSource.Models
+{
+    public class Contributor
+    {
+        public Contributor() { }
+        [Newtonsoft.Json.JsonProperty("displayname")]
+        public string DisplayName { get; set; }
+        [Newtonsoft.Json.JsonProperty("id")]
+        public long Id { get; set; }
+    }
+    public class HttpResponse<T>
+    {
+        public HttpResponse() { }
+        public bool IsSuccess { get; set; }
+        public T Response { get; set; }
+        public System.Net.HttpStatusCode StatusCode { get; set; }
+    }
+    public class ListResponse<T> : MovieCollection.SubSource.Models.Response
+    {
+        public ListResponse() { }
+        [Newtonsoft.Json.JsonProperty("data")]
+        public System.Collections.Generic.List<T> Data { get; set; }
+    }
+    public class Movie
+    {
+        public Movie() { }
+        [Newtonsoft.Json.JsonProperty("alternateTitle")]
+        public string AlternateTitle { get; set; }
+        [Newtonsoft.Json.JsonProperty("imdbId")]
+        public string ImdbId { get; set; }
+        [Newtonsoft.Json.JsonProperty("movieId")]
+        public int MovieId { get; set; }
+        [Newtonsoft.Json.JsonProperty("posters")]
+        public MovieCollection.SubSource.Models.Poster Posters { get; set; }
+        [Newtonsoft.Json.JsonProperty("releaseYear")]
+        public long ReleaseYear { get; set; }
+        [Newtonsoft.Json.JsonProperty("season")]
+        public int? Season { get; set; }
+        [Newtonsoft.Json.JsonProperty("subtitleCount")]
+        public long? SubtitleCount { get; set; }
+        [Newtonsoft.Json.JsonProperty("title")]
+        public string Title { get; set; }
+        [Newtonsoft.Json.JsonProperty("tmdbId")]
+        public int? TmdbId { get; set; }
+        [Newtonsoft.Json.JsonProperty("type")]
+        public string Type { get; set; }
+    }
+    public class NewMovieSearch
+    {
+        public NewMovieSearch() { }
+        public string? Imdb { get; set; }
+        public string? Query { get; set; }
+        public string SearchType { get; set; }
+        public int? Season { get; set; }
+        public string Type { get; set; }
+        public int? Year { get; set; }
+    }
+    public class NewSubtitleSearch : MovieCollection.SubSource.Models.SubtitleFilters
+    {
+        public NewSubtitleSearch() { }
+        public int? Limit { get; set; }
+    }
+    public class NewUserSearch : MovieCollection.SubSource.Models.UserFilters
+    {
+        public NewUserSearch() { }
+        public int? Limit { get; set; }
+        public int? Page { get; set; }
+    }
+    public class NewUserSubtitlesSearch
+    {
+        public NewUserSubtitlesSearch() { }
+        public bool? ForeignParts { get; set; }
+        public string? Framerate { get; set; }
+        public bool? HearingImpaired { get; set; }
+        public string? Language { get; set; }
+        public int? Limit { get; set; }
+        public int? MovieId { get; set; }
+        public int? Page { get; set; }
+        public string? ProductionType { get; set; }
+        public string? ReleaseType { get; set; }
+        public string? Sort { get; set; }
+        public int UserId { get; set; }
+    }
+    public class PagedResponse<TResult> : MovieCollection.SubSource.Models.ListResponse<TResult>
+    {
+        public PagedResponse() { }
+        [Newtonsoft.Json.JsonProperty("pagination")]
+        public MovieCollection.SubSource.Models.Pagination Pagination { get; set; }
+    }
+    public class PagedResponse<TResult, TFilters> : MovieCollection.SubSource.Models.ListResponse<TResult>
+    {
+        public PagedResponse() { }
+        [Newtonsoft.Json.JsonProperty("filters")]
+        public TFilters Filters { get; set; }
+        [Newtonsoft.Json.JsonProperty("pagination")]
+        public MovieCollection.SubSource.Models.Pagination Pagination { get; set; }
+    }
+    public class Pagination
+    {
+        public Pagination() { }
+        [Newtonsoft.Json.JsonProperty("limit")]
+        public int Limit { get; set; }
+        [Newtonsoft.Json.JsonProperty("page")]
+        public int Page { get; set; }
+        [Newtonsoft.Json.JsonProperty("pages")]
+        public int Pages { get; set; }
+        [Newtonsoft.Json.JsonProperty("total")]
+        public long Total { get; set; }
+    }
+    public class Poster
+    {
+        public Poster() { }
+        [Newtonsoft.Json.JsonProperty("large")]
+        public string? Large { get; set; }
+        [Newtonsoft.Json.JsonProperty("medium")]
+        public string? Medium { get; set; }
+        [Newtonsoft.Json.JsonProperty("original")]
+        public string? Original { get; set; }
+        [Newtonsoft.Json.JsonProperty("small")]
+        public string? Small { get; set; }
+    }
+    public class Rating
+    {
+        public Rating() { }
+        [Newtonsoft.Json.JsonProperty("bad")]
+        public int Bad { get; set; }
+        [Newtonsoft.Json.JsonProperty("good")]
+        public int Good { get; set; }
+        [Newtonsoft.Json.JsonProperty("total")]
+        public int Total { get; set; }
+    }
+    public class Response
+    {
+        public Response() { }
+        [Newtonsoft.Json.JsonProperty("message")]
+        public string Message { get; set; }
+    }
+    public class Response<T> : MovieCollection.SubSource.Models.Response
+    {
+        public Response() { }
+        [Newtonsoft.Json.JsonProperty("data")]
+        public T Data { get; set; }
+    }
+    public static class SearchContentType
+    {
+        public const string All = "all";
+        public const string Movie = "movie";
+        public const string Series = "series";
+    }
+    public static class SearchType
+    {
+        public const string Imdb = "imdb";
+        public const string Text = "text";
+    }
+    public class Stats
+    {
+        public Stats() { }
+        [Newtonsoft.Json.JsonProperty("totalAssociated")]
+        public long TotalAssociated { get; set; }
+        [Newtonsoft.Json.JsonProperty("totalContributed")]
+        public long TotalContributed { get; set; }
+        [Newtonsoft.Json.JsonProperty("totalUploaded")]
+        public long TotalUploaded { get; set; }
+    }
+    public class Subtitle
+    {
+        public Subtitle() { }
+        [Newtonsoft.Json.JsonProperty("commentary")]
+        public string? Commentary { get; set; }
+        [Newtonsoft.Json.JsonProperty("comments")]
+        public long Comments { get; set; }
+        [Newtonsoft.Json.JsonProperty("contributors")]
+        public System.Collections.Generic.List<MovieCollection.SubSource.Models.Contributor> Contributors { get; set; }
+        [Newtonsoft.Json.JsonProperty("createdAt")]
+        public System.DateTimeOffset CreatedAt { get; set; }
+        [Newtonsoft.Json.JsonProperty("downloads")]
+        public long Downloads { get; set; }
+        [Newtonsoft.Json.JsonProperty("files")]
+        public int? Files { get; set; }
+        [Newtonsoft.Json.JsonProperty("foreignParts")]
+        public bool ForeignParts { get; set; }
+        [Newtonsoft.Json.JsonProperty("framerate")]
+        public string? Framerate { get; set; }
+        [Newtonsoft.Json.JsonProperty("hearingImpaired")]
+        public bool HearingImpaired { get; set; }
+        [Newtonsoft.Json.JsonProperty("language")]
+        public string Language { get; set; }
+        [Newtonsoft.Json.JsonProperty("movieId")]
+        public int MovieId { get; set; }
+        [Newtonsoft.Json.JsonProperty("preview")]
+        public string? Preview { get; set; }
+        [Newtonsoft.Json.JsonProperty("productionType")]
+        public string? ProductionType { get; set; }
+        [Newtonsoft.Json.JsonProperty("rating")]
+        public MovieCollection.SubSource.Models.Rating Rating { get; set; }
+        [Newtonsoft.Json.JsonProperty("releaseInfo")]
+        public System.Collections.Generic.List<string> ReleaseInfo { get; set; }
+        [Newtonsoft.Json.JsonProperty("releaseType")]
+        public string? ReleaseType { get; set; }
+        [Newtonsoft.Json.JsonProperty("size")]
+        public long? Size { get; set; }
+        [Newtonsoft.Json.JsonProperty("subtitleId")]
+        public long SubtitleId { get; set; }
+        [Newtonsoft.Json.JsonProperty("uploaderId")]
+        public int UploaderId { get; set; }
+    }
+    public class SubtitleFilters
+    {
+        public SubtitleFilters() { }
+        [Newtonsoft.Json.JsonProperty("foreignParts")]
+        public bool? ForeignParts { get; set; }
+        [Newtonsoft.Json.JsonProperty("framerate")]
+        public string? Framerate { get; set; }
+        [Newtonsoft.Json.JsonProperty("hearingImpaired")]
+        public bool? HearingImpaired { get; set; }
+        [Newtonsoft.Json.JsonProperty("language")]
+        public string? Language { get; set; }
+        [Newtonsoft.Json.JsonProperty("movieId")]
+        public int? MovieId { get; set; }
+        public int? Page { get; set; }
+        [Newtonsoft.Json.JsonProperty("productionType")]
+        public string? ProductionType { get; set; }
+        [Newtonsoft.Json.JsonProperty("releaseInfo")]
+        public string? ReleaseInfo { get; set; }
+        [Newtonsoft.Json.JsonProperty("releaseType")]
+        public string? ReleaseType { get; set; }
+        [Newtonsoft.Json.JsonProperty("sort")]
+        public string? Sort { get; set; }
+        [Newtonsoft.Json.JsonProperty("uploader")]
+        public int? UploaderId { get; set; }
+    }
+    public class User
+    {
+        public User() { }
+        [Newtonsoft.Json.JsonProperty("avatar")]
+        public System.Uri Avatar { get; set; }
+        [Newtonsoft.Json.JsonProperty("badges")]
+        public System.Collections.Generic.List<object> Badges { get; set; }
+        [Newtonsoft.Json.JsonProperty("createdAt")]
+        public System.DateTimeOffset CreatedAt { get; set; }
+        [Newtonsoft.Json.JsonProperty("displayname")]
+        public string DisplayName { get; set; }
+        [Newtonsoft.Json.JsonProperty("lastSeen")]
+        public string LastSeen { get; set; }
+        [Newtonsoft.Json.JsonProperty("userId")]
+        public long UserId { get; set; }
+        [Newtonsoft.Json.JsonProperty("username")]
+        public string Username { get; set; }
+    }
+    public class UserFilters
+    {
+        public UserFilters() { }
+        [Newtonsoft.Json.JsonProperty("search")]
+        public string Query { get; set; }
+    }
+    public class UserSubtitles : MovieCollection.SubSource.Models.PagedResponse<MovieCollection.SubSource.Models.Subtitle>
+    {
+        public UserSubtitles() { }
+        [Newtonsoft.Json.JsonProperty("stats")]
+        public MovieCollection.SubSource.Models.Stats Stats { get; set; }
+    }
+}
+namespace MovieCollection.SubSource
+{
+    public class SubSourceOptions
+    {
+        public SubSourceOptions() { }
+        public string ApiAddress { get; set; }
+        public string ApiKey { get; set; }
+        public System.Net.Http.Headers.ProductHeaderValue? ProductInformation { get; set; }
+    }
+    public class SubSourceService
+    {
+        public SubSourceService(System.Net.Http.HttpClient httpClient, MovieCollection.SubSource.SubSourceOptions options) { }
+        public System.Threading.Tasks.Task DownloadSubtitleAsync(int subtitleId, string destination, System.Threading.CancellationToken cancellationToken = default) { }
+        public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.Response<MovieCollection.SubSource.Models.Movie>>> GetMovieByIdAsync(int movieId, System.Threading.CancellationToken cancellationToken = default) { }
+        public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.Response<MovieCollection.SubSource.Models.Subtitle>>> GetSubtitleByIdAsync(int subtitleId, System.Threading.CancellationToken cancellationToken = default) { }
+        public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.PagedResponse<MovieCollection.SubSource.Models.Subtitle, MovieCollection.SubSource.Models.SubtitleFilters>>> GetSubtitlesAsync(MovieCollection.SubSource.Models.NewSubtitleSearch request, System.Threading.CancellationToken cancellationToken = default) { }
+        public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.Response<MovieCollection.SubSource.Models.User>>> GetUserByIdAsync(int userId, System.Threading.CancellationToken cancellationToken = default) { }
+        public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.UserSubtitles>> GetUserSubtitlesAsync(MovieCollection.SubSource.Models.NewUserSubtitlesSearch request, System.Threading.CancellationToken cancellationToken = default) { }
+        public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.ListResponse<MovieCollection.SubSource.Models.Movie>>> SearchMoviesAsync(MovieCollection.SubSource.Models.NewMovieSearch request, System.Threading.CancellationToken cancellationToken = default) { }
+        public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.PagedResponse<MovieCollection.SubSource.Models.User, MovieCollection.SubSource.Models.UserFilters>>> SearchUsersAsync(MovieCollection.SubSource.Models.NewUserSearch request, System.Threading.CancellationToken cancellationToken = default) { }
+    }
+}

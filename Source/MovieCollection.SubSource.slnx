@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
+  <Project Path="Demo/Demo.csproj" Id="6c984fd5-c21f-429b-8b92-d31f77b70094" />
+  <Project Path="MovieCollection.SubSource.Tests/MovieCollection.SubSource.Tests.csproj" Id="95df3154-f87e-4766-8330-2f46335dffd3" />
+  <Project Path="MovieCollection.SubSource/MovieCollection.SubSource.csproj" />
+</Solution>
