@@ -7,7 +7,7 @@ namespace MovieCollection.SubSource.Models;
 public class Subtitle
 {
     [JsonProperty("subtitleId")]
-    public long SubtitleId { get; set; }
+    public int SubtitleId { get; set; }
 
     [JsonProperty("movieId")]
     public int MovieId { get; set; }

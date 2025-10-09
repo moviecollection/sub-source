@@ -11,7 +11,7 @@ public class Pagination
     public int Limit { get; set; }
 
     [JsonProperty("total")]
-    public long Total { get; set; }
+    public int Total { get; set; }
 
     [JsonProperty("pages")]
     public int Pages { get; set; }

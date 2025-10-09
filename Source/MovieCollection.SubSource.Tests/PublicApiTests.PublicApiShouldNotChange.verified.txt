@@ -8,7 +8,7 @@ namespace MovieCollection.SubSource.Models
         [Newtonsoft.Json.JsonProperty("displayname")]
         public string DisplayName { get; set; }
         [Newtonsoft.Json.JsonProperty("id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
     }
     public class HttpResponse<T>
     {
@@ -35,11 +35,11 @@ namespace MovieCollection.SubSource.Models
         [Newtonsoft.Json.JsonProperty("posters")]
         public MovieCollection.SubSource.Models.Poster Posters { get; set; }
         [Newtonsoft.Json.JsonProperty("releaseYear")]
-        public long ReleaseYear { get; set; }
+        public int ReleaseYear { get; set; }
         [Newtonsoft.Json.JsonProperty("season")]
         public int? Season { get; set; }
         [Newtonsoft.Json.JsonProperty("subtitleCount")]
-        public long? SubtitleCount { get; set; }
+        public int? SubtitleCount { get; set; }
         [Newtonsoft.Json.JsonProperty("title")]
         public string Title { get; set; }
         [Newtonsoft.Json.JsonProperty("tmdbId")]
@@ -107,7 +107,7 @@ namespace MovieCollection.SubSource.Models
         [Newtonsoft.Json.JsonProperty("pages")]
         public int Pages { get; set; }
         [Newtonsoft.Json.JsonProperty("total")]
-        public long Total { get; set; }
+        public int Total { get; set; }
     }
     public class Poster
     {
@@ -158,11 +158,11 @@ namespace MovieCollection.SubSource.Models
     {
         public Stats() { }
         [Newtonsoft.Json.JsonProperty("totalAssociated")]
-        public long TotalAssociated { get; set; }
+        public int TotalAssociated { get; set; }
         [Newtonsoft.Json.JsonProperty("totalContributed")]
-        public long TotalContributed { get; set; }
+        public int TotalContributed { get; set; }
         [Newtonsoft.Json.JsonProperty("totalUploaded")]
-        public long TotalUploaded { get; set; }
+        public int TotalUploaded { get; set; }
     }
     public class Subtitle
     {
@@ -202,7 +202,7 @@ namespace MovieCollection.SubSource.Models
         [Newtonsoft.Json.JsonProperty("size")]
         public long? Size { get; set; }
         [Newtonsoft.Json.JsonProperty("subtitleId")]
-        public long SubtitleId { get; set; }
+        public int SubtitleId { get; set; }
         [Newtonsoft.Json.JsonProperty("uploaderId")]
         public int UploaderId { get; set; }
     }
@@ -235,7 +235,7 @@ namespace MovieCollection.SubSource.Models
     {
         public User() { }
         [Newtonsoft.Json.JsonProperty("avatar")]
-        public System.Uri Avatar { get; set; }
+        public string Avatar { get; set; }
         [Newtonsoft.Json.JsonProperty("badges")]
         public System.Collections.Generic.List<object> Badges { get; set; }
         [Newtonsoft.Json.JsonProperty("createdAt")]
@@ -245,7 +245,7 @@ namespace MovieCollection.SubSource.Models
         [Newtonsoft.Json.JsonProperty("lastSeen")]
         public string LastSeen { get; set; }
         [Newtonsoft.Json.JsonProperty("userId")]
-        public long UserId { get; set; }
+        public int UserId { get; set; }
         [Newtonsoft.Json.JsonProperty("username")]
         public string Username { get; set; }
     }

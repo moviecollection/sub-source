@@ -17,7 +17,7 @@ public class Movie
     public string Type { get; set; }
 
     [JsonProperty("releaseYear")]
-    public long ReleaseYear { get; set; }
+    public int ReleaseYear { get; set; }
 
     [JsonProperty("imdbId")]
     public string ImdbId { get; set; }
@@ -29,7 +29,7 @@ public class Movie
     public int? Season { get; set; }
 
     [JsonProperty("subtitleCount")]
-    public long? SubtitleCount { get; set; }
+    public int? SubtitleCount { get; set; }
 
     [JsonProperty("posters")]
     public Poster Posters { get; set; }

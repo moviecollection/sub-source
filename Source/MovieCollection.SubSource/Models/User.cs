@@ -7,7 +7,7 @@ namespace MovieCollection.SubSource.Models;
 public class User
 {
     [JsonProperty("userId")]
-    public long UserId { get; set; }
+    public int UserId { get; set; }
 
     [JsonProperty("displayname")]
     public string DisplayName { get; set; }
@@ -19,7 +19,7 @@ public class User
     public List<object> Badges { get; set; }
 
     [JsonProperty("avatar")]
-    public Uri Avatar { get; set; }
+    public string Avatar { get; set; }
 
     [JsonProperty("createdAt")]
     public DateTimeOffset CreatedAt { get; set; }

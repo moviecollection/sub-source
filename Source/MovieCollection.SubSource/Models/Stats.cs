@@ -5,11 +5,11 @@ namespace MovieCollection.SubSource.Models;
 public class Stats
 {
     [JsonProperty("totalUploaded")]
-    public long TotalUploaded { get; set; }
+    public int TotalUploaded { get; set; }
 
     [JsonProperty("totalContributed")]
-    public long TotalContributed { get; set; }
+    public int TotalContributed { get; set; }
 
     [JsonProperty("totalAssociated")]
-    public long TotalAssociated { get; set; }
+    public int TotalAssociated { get; set; }
 }
