@@ -19,10 +19,14 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <NoWarn>(NoWarn);CS1591</NoWarn>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
         <AnalysisLevel>latest</AnalysisLevel>
         <EnableNETAnalyzers>true</EnableNETAnalyzers>
     </PropertyGroup>
+
+    <!--
+    # CS1591: Missing XML comment for publicly visible type or member.
+    -->
 
     <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'net48'">
         <NoWarn>$(NoWarn);nullable</NoWarn>
