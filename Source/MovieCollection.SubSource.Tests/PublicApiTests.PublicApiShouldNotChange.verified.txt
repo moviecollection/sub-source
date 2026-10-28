@@ -57,6 +57,12 @@ namespace MovieCollection.SubSource.Models
         public string Type { get; set; }
         public int? Year { get; set; }
     }
+    public class NewSubtitleRecent : MovieCollection.SubSource.Models.RecentFilters
+    {
+        public NewSubtitleRecent() { }
+        public int? Limit { get; set; }
+        public int? Page { get; set; }
+    }
     public class NewSubtitleSearch : MovieCollection.SubSource.Models.SubtitleFilters
     {
         public NewSubtitleSearch() { }
@@ -130,6 +136,21 @@ namespace MovieCollection.SubSource.Models
         public int Good { get; set; }
         [Newtonsoft.Json.JsonProperty("total")]
         public int Total { get; set; }
+    }
+    public class RecentFilters
+    {
+        public RecentFilters() { }
+        [Newtonsoft.Json.JsonProperty("language")]
+        public string? Language { get; set; }
+        [Newtonsoft.Json.JsonProperty("sort")]
+        public string? Sort { get; set; }
+        [Newtonsoft.Json.JsonProperty("type")]
+        public string? Type { get; set; }
+    }
+    public static class RecentMediaType
+    {
+        public const string Movie = "movie";
+        public const string Series = "tvseries";
     }
     public class Response
     {
@@ -231,6 +252,16 @@ namespace MovieCollection.SubSource.Models
         [Newtonsoft.Json.JsonProperty("uploader")]
         public int? UploaderId { get; set; }
     }
+    public class SubtitleRecent : MovieCollection.SubSource.Models.Subtitle
+    {
+        public SubtitleRecent() { }
+        [Newtonsoft.Json.JsonProperty("link")]
+        public string Link { get; set; }
+        [Newtonsoft.Json.JsonProperty("mediaType")]
+        public string MediaType { get; set; }
+        [Newtonsoft.Json.JsonProperty("title")]
+        public string Title { get; set; }
+    }
     public class User
     {
         public User() { }
@@ -276,6 +307,7 @@ namespace MovieCollection.SubSource
         public SubSourceService(System.Net.Http.HttpClient httpClient, MovieCollection.SubSource.SubSourceOptions options) { }
         public System.Threading.Tasks.Task DownloadSubtitleAsync(int subtitleId, string destination, System.Threading.CancellationToken cancellationToken = default) { }
         public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.Response<MovieCollection.SubSource.Models.Movie>>> GetMovieByIdAsync(int movieId, System.Threading.CancellationToken cancellationToken = default) { }
+        public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.PagedResponse<MovieCollection.SubSource.Models.SubtitleRecent, MovieCollection.SubSource.Models.RecentFilters>>> GetRecentSubtitlesAsync(MovieCollection.SubSource.Models.NewSubtitleRecent request, System.Threading.CancellationToken cancellationToken = default) { }
         public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.Response<MovieCollection.SubSource.Models.Subtitle>>> GetSubtitleByIdAsync(int subtitleId, System.Threading.CancellationToken cancellationToken = default) { }
         public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.PagedResponse<MovieCollection.SubSource.Models.Subtitle, MovieCollection.SubSource.Models.SubtitleFilters>>> GetSubtitlesAsync(MovieCollection.SubSource.Models.NewSubtitleSearch request, System.Threading.CancellationToken cancellationToken = default) { }
         public System.Threading.Tasks.Task<MovieCollection.SubSource.Models.HttpResponse<MovieCollection.SubSource.Models.Response<MovieCollection.SubSource.Models.User>>> GetUserByIdAsync(int userId, System.Threading.CancellationToken cancellationToken = default) { }

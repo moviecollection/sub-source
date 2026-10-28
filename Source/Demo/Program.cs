@@ -36,12 +36,13 @@ Start:
 
         Console.WriteLine("1. Search for Movies & TV Shows");
         Console.WriteLine("2. Get Movie by Id");
-        Console.WriteLine("3. Get for Subtitles");
-        Console.WriteLine("4. Get Subtitle by Id");
-        Console.WriteLine("5. Download a subtitle");
-        Console.WriteLine("6. Search for Users");
-        Console.WriteLine("7. Get User by Id");
-        Console.WriteLine("8. Get User Subtitles");
+        Console.WriteLine("3. Get Recent Subtitles");
+        Console.WriteLine("4. Get Subtitles");
+        Console.WriteLine("5. Get Subtitle by Id");
+        Console.WriteLine("6. Download a Subtitle");
+        Console.WriteLine("7. Search for Users");
+        Console.WriteLine("8. Get User by Id");
+        Console.WriteLine("9. Get User Subtitles");
 
         Console.Write("\nPlease select an option: ");
         var input = Convert.ToInt32(Console.ReadLine());
@@ -52,12 +53,13 @@ Start:
         {
             1 => SearchMoviesAsync(),
             2 => GetMovieById(),
-            3 => GetSubtitles(),
-            4 => GetSubtitleById(),
-            5 => DownloadSubtitle(),
-            6 => SearchUsers(),
-            7 => GetUserById(),
-            8 => GetUserSubtitles(),
+            3 => GetRecentSubtitles(),
+            4 => GetSubtitles(),
+            5 => GetSubtitleById(),
+            6 => DownloadSubtitle(),
+            7 => SearchUsers(),
+            8 => GetUserById(),
+            9 => GetUserSubtitles(),
             _ => null,
         };
 
@@ -93,6 +95,21 @@ Start:
         // The Phoenician Scheme
         var result = await service.GetMovieByIdAsync(149171);
         Print(result.Response.Data);
+    }
+
+    static async Task GetRecentSubtitles()
+    {
+        var request = new NewSubtitleRecent
+        {
+            Language = "english",
+        };
+
+        var result = await service.GetRecentSubtitlesAsync(request);
+
+        foreach (var item in result.Response.Data)
+        {
+            Print(item);
+        }
     }
 
     static async Task GetSubtitles()
@@ -173,6 +190,26 @@ Start:
         Console.WriteLine($"AlternateTitle: {item.AlternateTitle}");
         Console.WriteLine($"Type: {item.Type}");
         Console.WriteLine($"ReleaseYear: {item.ReleaseYear}");
+        Console.WriteLine();
+    }
+
+    static void Print(SubtitleRecent item)
+    {
+        Console.WriteLine($"SubtitleId: {item.SubtitleId}");
+        Console.WriteLine($"MovieId: {item.MovieId}");
+        Console.WriteLine($"Title: {item.Title}");
+        Console.WriteLine($"MediaType: {item.MediaType}");
+        Console.WriteLine($"Language: {item.Language}");
+        Console.WriteLine($"ReleaseInfo: {string.Join(", ", item.ReleaseInfo)}");
+        Console.WriteLine($"Files: {item.Files}");
+        Console.WriteLine($"Size: {item.Size}");
+        Console.WriteLine($"HearingImpaired: {item.HearingImpaired}");
+        Console.WriteLine($"ForeignParts: {item.ForeignParts}");
+        Console.WriteLine($"Framerate: {item.Framerate}");
+        Console.WriteLine($"ProductionType: {item.ProductionType}");
+        Console.WriteLine($"ReleaseType: {item.ReleaseType}");
+        Console.WriteLine($"Downloads: {item.Downloads}");
+        Console.WriteLine($"Link: {item.Link}");
         Console.WriteLine();
     }
 

@@ -104,6 +104,51 @@ public class SubSourceService
     }
 
     /// <summary>
+    /// Retrieve the latest approved subtitles.
+    /// Sorted by newest, or by downloads from the last 30 days. Only the first 20 pages can be requested.
+    /// </summary>
+    /// <param name="request">An instance of <see cref="NewSubtitleRecent"/> class.</param>
+    /// <param name="cancellationToken">The cancellation token to cancel the operation.</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    /// <exception cref="ArgumentNullException">When <paramref name="request"/> is null.</exception>
+    public Task<HttpResponse<PagedResponse<SubtitleRecent, RecentFilters>>> GetRecentSubtitlesAsync(NewSubtitleRecent request, CancellationToken cancellationToken = default)
+    {
+        if (request is null)
+        {
+            throw new ArgumentNullException(nameof(request));
+        }
+
+        var parameters = new Dictionary<string, object>();
+
+        if (!string.IsNullOrEmpty(request.Language))
+        {
+            parameters.Add("language", request.Language);
+        }
+
+        if (!string.IsNullOrEmpty(request.Type))
+        {
+            parameters.Add("type", request.Type);
+        }
+
+        if (!string.IsNullOrEmpty(request.Sort))
+        {
+            parameters.Add("sort", request.Sort);
+        }
+
+        if (request.Page.HasValue)
+        {
+            parameters.Add("page", request.Page);
+        }
+
+        if (request.Limit.HasValue)
+        {
+            parameters.Add("limit", request.Limit);
+        }
+
+        return GetJsonAsync<PagedResponse<SubtitleRecent, RecentFilters>>("/api/v1/subtitles/recent", parameters, null, cancellationToken);
+    }
+
+    /// <summary>
     /// Retrieve subtitles for a specific movie or TV show.
     /// </summary>
     /// <param name="request">An instance of <see cref="NewSubtitleSearch"/> class.</param>
