@@ -213,6 +213,24 @@ Start:
         Console.WriteLine();
     }
 
+    static void Print(SubtitleUser item)
+    {
+        Console.WriteLine($"SubtitleId: {item.SubtitleId}");
+        Console.WriteLine($"MovieId: {item.MovieId}");
+        Console.WriteLine($"Language: {item.Language}");
+        Console.WriteLine($"ReleaseInfo: {string.Join(", ", item.ReleaseInfo)}");
+        Console.WriteLine($"Files: {item.Files}");
+        Console.WriteLine($"Size: {item.Size}");
+        Console.WriteLine($"HearingImpaired: {item.HearingImpaired}");
+        Console.WriteLine($"ForeignParts: {item.ForeignParts}");
+        Console.WriteLine($"Framerate: {item.Framerate}");
+        Console.WriteLine($"ProductionType: {item.ProductionType}");
+        Console.WriteLine($"ReleaseType: {item.ReleaseType}");
+        Console.WriteLine($"Downloads: {item.Downloads}");
+        Console.WriteLine($"IsCollaboration: {item.IsCollaboration}");
+        Console.WriteLine();
+    }
+
     static void Print(Subtitle item)
     {
         Console.WriteLine($"SubtitleId: {item.SubtitleId}");

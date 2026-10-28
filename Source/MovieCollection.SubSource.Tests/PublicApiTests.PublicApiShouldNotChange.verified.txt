@@ -262,6 +262,12 @@ namespace MovieCollection.SubSource.Models
         [Newtonsoft.Json.JsonProperty("title")]
         public string Title { get; set; }
     }
+    public class SubtitleUser : MovieCollection.SubSource.Models.Subtitle
+    {
+        public SubtitleUser() { }
+        [Newtonsoft.Json.JsonProperty("isCollaboration")]
+        public bool IsCollaboration { get; set; }
+    }
     public class User
     {
         public User() { }
@@ -286,7 +292,7 @@ namespace MovieCollection.SubSource.Models
         [Newtonsoft.Json.JsonProperty("search")]
         public string Query { get; set; }
     }
-    public class UserSubtitles : MovieCollection.SubSource.Models.PagedResponse<MovieCollection.SubSource.Models.Subtitle>
+    public class UserSubtitles : MovieCollection.SubSource.Models.PagedResponse<MovieCollection.SubSource.Models.SubtitleUser>
     {
         public UserSubtitles() { }
         [Newtonsoft.Json.JsonProperty("stats")]
